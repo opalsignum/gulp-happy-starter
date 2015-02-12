@@ -6,7 +6,6 @@ module.exports = {
     browserSync: {
         init: dest + '/**',
         server: {
-            // Serve up our build folder
             baseDir: dest,
             directory: true,
             notify: false,
@@ -19,8 +18,6 @@ module.exports = {
         settings: {
             includePaths: require('node-bourbon').includePaths,
             sourceComments: 'map'
-            // indentedSyntax: true, // Enable .sass syntax!
-            // imagePath: 'images' // Used by the image-url helper
         }
     },
     // images: {
@@ -32,15 +29,9 @@ module.exports = {
         dest: dest + '/Templates'
     },
     browserify: {
-        // A separate bundle will be generated for each
-        // bundle config in the list below
-        bundleConfigs: [{
-            entries: src + '/JavaScript/main.js',
-            dest: dest + '/JavaScript',
-            outputName: 'main.js'
-            // list of externally available modules to exclude from the bundle
-            // external: ['jquery', 'underscore']
-        }]
+        entries: src + '/JavaScript/main.js',
+        dest: dest + '/JavaScript',
+        outputName: 'main.js'
     }
     // production: {
     //   cssSrc: dest + '/*.css',
