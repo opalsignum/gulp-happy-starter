@@ -1,12 +1,13 @@
-var dest = './.tmp';
-var src = './Private';
-var build = './Public';
+var dest = './.tmp',
+    src = './Private',
+    build = './Public';
 
 module.exports = {
     browserSync: {
+        init: dest + '/**',
         server: {
             // Serve up our build folder
-            baseDir: './',
+            baseDir: dest,
             directory: true,
             notify: false,
             browser: 'google chrome'

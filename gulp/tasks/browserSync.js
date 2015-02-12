@@ -1,16 +1,16 @@
 var browserSync = require('browser-sync');
-var gulp        = require('gulp');
+    gulp = require('gulp'),
+    config = require('../config').browserSync;
 
 gulp.task('browserSync', [
-  'browserify', 'coffeelint',
-  'copyCssJsHtml', 'copyOther',
-  'sass', 'images', 'jade'
+    'sass', 'jade'
+    // gulp.task('browserSync', [
+    //     'browserify', 'coffeelint',
+    //     'copyCssJsHtml', 'copyOther',
+    //     'sass', 'images', 'jade'
 ], function() {
-  // watch .tmp and bower dir for changes
-  browserSync.init(['.tmp/**', '.bower_components/**'], {
-    server: {
-      //  '.' for bower_components availability
-      baseDir: ['.tmp', '.']
-    }
-  });
+    // watch dir for changes
+    browserSync.init(config.init, {
+        server: config.server
+    });
 });
