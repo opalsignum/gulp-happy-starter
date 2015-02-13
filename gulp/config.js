@@ -1,6 +1,5 @@
-var dest = './.tmp',
-    src = './Private',
-    build = './Public';
+var dest = './Public',
+    src = './Private';
 
 module.exports = {
     browserSync: {
@@ -33,9 +32,4 @@ module.exports = {
         dest: dest + '/JavaScript',
         outputName: 'main.js'
     }
-    // production: {
-    //   cssSrc: dest + '/*.css',
-    //   jsSrc: dest + '/*.js',
-    //   dest: dest
-    // }
 };
