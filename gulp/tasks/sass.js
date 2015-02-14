@@ -1,10 +1,9 @@
 var gulp = require('gulp'),
+    config = require('../config').sass,
     sass = require('gulp-sass'),
-    handleErrors = require('../util/handleErrors'),
-    plumber = require('gulp-plumber'),
     sourcemaps = require('gulp-sourcemaps'),
-    config = require('../config').sass;
-// var autoprefixer    = require('gulp-autoprefixer');
+    plumber = require('gulp-plumber'),
+    handleErrors = require('../util/handleErrors');
 
 // Compile and Automatically Prefix Stylesheets
 gulp.task('sass', function() {
@@ -16,6 +15,5 @@ gulp.task('sass', function() {
         .pipe(sourcemaps.init({}))
         .pipe(sass(config.settings))
         .pipe(sourcemaps.write())
-        // .pipe(autoprefixer(AUTOPREFIXER_BROWSERS, { map: true }))
         .pipe(gulp.dest(config.dest));
 });

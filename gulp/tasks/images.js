@@ -1,14 +1,16 @@
-var changed  = require('gulp-changed');
-var gulp     = require('gulp');
-var imagemin = require('gulp-imagemin');
-var gulpIf   = require('gulp-if');
+var gulp = require('gulp'),
+    gulpIf = require('gulp-if'),
+    changed = require('gulp-changed'),
+    imagemin = require('gulp-imagemin');
 
+// TODO: Falls Bilder optimiert werden sollen, diesen Task in default aufnehmen
 gulp.task('images', function() {
-  var dest = '.tmp/assets';
+    var dest = '.tmp/assets';
 
-  return gulp.src('src/images/**')
-    .pipe(changed(dest)) // Ignore unchanged files
-    .pipe(imagemin()) // Optimize
-    .pipe(gulpIf(global.isWatching, gulp.dest(dest)))  // for development
-    .pipe(gulpIf(!global.isWatching, gulp.dest('dist/assets')))   // for dist
+    // TODO: Pfade anpassen (separaten Build Task beachten)
+    return gulp.src('src/images/**')
+        .pipe(changed(dest)) // Ignore unchanged files
+        .pipe(imagemin()) // Optimize
+        .pipe(gulpIf(global.isWatching, gulp.dest(dest))) // for development
+        .pipe(gulpIf(!global.isWatching, gulp.dest('dist/assets'))) // for dist
 });

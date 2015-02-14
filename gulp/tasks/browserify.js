@@ -6,13 +6,13 @@
    of browserify for faster bundling using caching.
 */
 
-var browserify = require('browserify'),
+var gulp = require('gulp'),
+    config = require('../config').browserify,
+    browserify = require('browserify'),
     watchify = require('watchify'),
     bundleLogger = require('../util/bundleLogger'),
-    gulp = require('gulp'),
     handleErrors = require('../util/handleErrors'),
-    source = require('vinyl-source-stream'),
-    config = require('../config').browserify;
+    source = require('vinyl-source-stream');
 
 gulp.task('browserify', function() {
     var bundler = browserify({

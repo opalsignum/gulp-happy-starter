@@ -1,14 +1,14 @@
 var gulp = require('gulp'),
-    jadeInheritance = require('gulp-jade-inheritance'),
+    config = require('../config').markup,
     jade = require('gulp-jade'),
+    jadeInheritance = require('gulp-jade-inheritance'),
     changed = require('gulp-changed'),
     cached = require('gulp-cached'),
     filter = require('gulp-filter'),
     gulpif = require('gulp-if'),
     flatten = require('gulp-flatten'),
     plumber = require('gulp-plumber'),
-    handleErrors = require('../util/handleErrors'),
-    config = require('../config').markup;
+    handleErrors = require('../util/handleErrors');
 
 gulp.task('jade', function() {
     return gulp.src(config.src + '/**/*.jade')

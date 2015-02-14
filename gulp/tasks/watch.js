@@ -7,6 +7,7 @@
 var gulp = require('gulp'),
     config = require('../config');
 
+// TODO: Bei Bedarf weitere Tasks hinzufügen
 gulp.task('watch', ['setWatch', 'browserSync'], function() {
     gulp.watch(config.sass.src, ['sass']);
     // gulp.watch('src/styles/**/*.css', ['copyCssJsHtml']);
@@ -21,6 +22,4 @@ gulp.task('watch', ['setWatch', 'browserSync'], function() {
 
     // gulp.watch('src/fonts/**', ['copyOther']);
     // gulp.watch('src/sounds/**', ['copyOther']);
-
-
 });

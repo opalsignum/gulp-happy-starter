@@ -1,7 +1,8 @@
-var browserSync = require('browser-sync'),
-    gulp = require('gulp'),
-    config = require('../config').browserSync;
+var gulp = require('gulp'),
+    config = require('../config').browserSync,
+    browserSync = require('browser-sync');
 
+// TODO: Weitere Tasks aufnehmen
 gulp.task('browserSync', [
     'browserify', 'sass', 'jade'
     // gulp.task('browserSync', [
