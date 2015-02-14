@@ -1,10 +1,12 @@
+'use strict';
+
 var gulp = require('gulp'),
     config = require('../config').browserSync,
     browserSync = require('browser-sync');
 
-// TODO: Weitere Tasks aufnehmen
+// TODO: Jshint sollte browserSync aufrufen
 gulp.task('browserSync', [
-    'browserify', 'sass', 'jade'
+    'jshint', 'browserify', 'sass', 'jade'
     // gulp.task('browserSync', [
     //     'browserify', 'coffeelint',
     //     'copyCssJsHtml', 'copyOther',

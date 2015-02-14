@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     gulpIf = require('gulp-if'),
     glob = require('glob'),

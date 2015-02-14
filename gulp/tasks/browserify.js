@@ -6,6 +6,8 @@
    of browserify for faster bundling using caching.
 */
 
+'use strict';
+
 var gulp = require('gulp'),
     config = require('../config').browserify,
     browserify = require('browserify'),

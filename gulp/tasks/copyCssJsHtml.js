@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     changed = require('gulp-changed');
 

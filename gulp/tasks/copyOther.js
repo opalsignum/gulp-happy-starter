@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     gulpIf = require('gulp-if'),
     changed = require('gulp-changed');
@@ -10,5 +12,5 @@ gulp.task('copyOther', function() {
     return gulp.src(['src/fonts/**', 'src/sounds/**'])
         .pipe(changed(dest)) // Ignore unchanged files
         .pipe(gulpIf(global.isWatching, gulp.dest(dest))) // for development
-        .pipe(gulpIf(!global.isWatching, gulp.dest('dist/assets'))) // for dist
+        .pipe(gulpIf(!global.isWatching, gulp.dest('dist/assets'))); // for dist
 });

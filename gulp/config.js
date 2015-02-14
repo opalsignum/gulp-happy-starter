@@ -1,3 +1,5 @@
+'use strict';
+
 var dest = './Public',
     src = './Private';
 
@@ -25,11 +27,15 @@ module.exports = {
     // },
     markup: {
         src: src + '/Html',
+        srcFiles: src + '/Html/**/*.jade',
         dest: dest + '/Templates'
     },
     browserify: {
         entries: src + '/JavaScript/main.js',
         dest: dest + '/JavaScript',
         outputName: 'main.js'
+    },
+    jshint: {
+        src: [src + '/JavaScript/main.js', 'gulp/**/*.js']
     }
 };
