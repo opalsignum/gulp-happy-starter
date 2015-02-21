@@ -8,8 +8,7 @@
   },
   "browserify": {
     "transform": [
-      "browserify-shim",
-      "coffeeify"
+      "browserify-shim"
     ]
   },
   "browserify-shim": {

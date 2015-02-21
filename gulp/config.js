@@ -36,6 +36,6 @@ module.exports = {
         outputName: 'main.js'
     },
     jshint: {
-        src: [src + '/JavaScript/main.js', 'gulp/**/*.js']
+        src: [src + '/JavaScript/**/*.js', 'gulp/**/*.js']
     }
 };

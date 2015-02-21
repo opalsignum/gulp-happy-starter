@@ -16,7 +16,7 @@ var gulp = require('gulp'),
     handleErrors = require('../util/handleErrors'),
     source = require('vinyl-source-stream');
 
-gulp.task('browserify', function() {
+gulp.task('browserify', ['jshint'], function() {
     var bundler = browserify({
         // Required watchify args
         cache: {},
