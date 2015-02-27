@@ -8,12 +8,12 @@ var gulp = require('gulp'),
     cached = require('gulp-cached'),
     filter = require('gulp-filter'),
     gulpif = require('gulp-if'),
-    flatten = require('gulp-flatten'),
+    // flatten = require('gulp-flatten'),
     plumber = require('gulp-plumber'),
     handleErrors = require('../util/handleErrors');
 
 gulp.task('jade', function() {
-    return gulp.src(config.src + '/**/*.jade')
+    return gulp.src(config.srcFiles)
         .pipe(plumber({
             errorHandler: handleErrors
         }))
@@ -34,6 +34,6 @@ gulp.task('jade', function() {
         .pipe(jade({
             pretty: !global.isWatching
         }))
-        .pipe(flatten())
+        // .pipe(flatten())
         .pipe(gulp.dest(config.dest));
 });

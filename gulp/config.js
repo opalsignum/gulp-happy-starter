@@ -26,8 +26,8 @@ module.exports = {
     //   dest: dest + "/images"
     // },
     markup: {
-        src: src + '/Html',
-        srcFiles: src + '/Html/**/*.jade',
+        src: src + '/Templates',
+        srcFiles: src + '/Templates/**/*.jade',
         dest: dest + '/Templates'
     },
     browserify: {
