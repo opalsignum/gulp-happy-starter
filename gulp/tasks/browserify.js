@@ -11,10 +11,12 @@
 var gulp = require('gulp'),
     config = require('../config').browserify,
     browserify = require('browserify'),
+    uglify = require('gulp-uglify'),
     watchify = require('watchify'),
     bundleLogger = require('../util/bundleLogger'),
     handleErrors = require('../util/handleErrors'),
-    source = require('vinyl-source-stream');
+    source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer');
 
 gulp.task('browserify', ['jshint'], function() {
     var bundler = browserify({
@@ -41,6 +43,8 @@ gulp.task('browserify', ['jshint'], function() {
             // stream gulp compatible. Specifiy the
             // desired output filename here.
             .pipe(source(config.outputName))
+            .pipe(buffer())
+            .pipe(uglify())
             // Specify the output destination
             .pipe(gulp.dest(config.dest))
             // Log when bundling completes!
