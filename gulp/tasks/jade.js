@@ -20,10 +20,7 @@ var gulp = require('gulp'),
 gulp.task('jade', function() {
     var jsVendorStream = gulp.src(config.jsVendor, {
             read: false
-        })
-        .pipe(concat(config.destFileName))
-        .pipe(uglify())
-        .pipe(gulp.dest(config.dest)),
+        }),
         jsMainStream = gulp.src(config.jsMain, {
             read: false
         });
