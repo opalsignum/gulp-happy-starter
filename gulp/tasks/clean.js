@@ -1,8 +1,8 @@
 'use strict';
 
 var gulp = require('gulp'),
+    config = require('../config').clean,
     del = require('del');
 
-// TODO: Clean Task evtl. anpassen, je nachdem ob .tmp ... benötigt wird
 // Clean Output Directory
-gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
+gulp.task('clean', del.bind(null, config.target));

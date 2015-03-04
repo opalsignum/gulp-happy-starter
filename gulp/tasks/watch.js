@@ -9,14 +9,13 @@
 var gulp = require('gulp'),
     config = require('../config');
 
-// TODO: Bei Bedarf weitere Tasks hinzufügen
 gulp.task('watch', ['setWatch', 'browserSync'], function() {
-    gulp.watch(config.sass.src, ['sass']);
-    // gulp.watch('src/styles/**/*.css', ['copyCssJsHtml']);
-
     gulp.watch(config.markup.srcFiles, ['jade']);
 
+    gulp.watch(config.sass.src, ['sass']);
+
     gulp.watch(config.jshint.src, ['jshint']);
+    gulp.watch(config.vendorJs.src, ['vendorJs']);
 
     // gulp.watch('src/images/**', ['images']);
     //

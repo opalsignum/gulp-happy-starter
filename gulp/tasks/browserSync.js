@@ -6,12 +6,14 @@ var gulp = require('gulp'),
 
 // TODO: Jshint sollte browserSync aufrufen
 gulp.task('browserSync', [
-    'browserify', 'sass', 'jade'
+    'browserify', 'vendorJs',
+    'sass', 'jade'
     // gulp.task('browserSync', [
     //     'browserify', 'coffeelint',
     //     'copyCssJsHtml', 'copyOther',
     //     'sass', 'images', 'jade'
-], function() {
+    ],
+    function() {
     // watch dir for changes
     browserSync.init(config.init, {
         server: config.server
