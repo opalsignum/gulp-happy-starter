@@ -1,0 +1,9 @@
+doctype html
+html(lang='de')
+    include ./Templates/_includes/_head.jade
+    body
+        h1 index.html
+        ul
+            li: a(href='Templates/bar.html') bar.html
+            li: a(href='Templates/foo/foo.html') foo.html
+        include ./Templates/_includes/_body-bottom.jade

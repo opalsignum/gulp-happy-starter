@@ -1,25 +1,25 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var handleErrors = require('../util/handleErrors');
-var plumber = require('gulp-plumber');
-var sourcemaps   = require('gulp-sourcemaps');
-// var autoprefixer    = require('gulp-autoprefixer');
+'use strict';
+
+var gulp = require('gulp'),
+    config = require('../config').sass,
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
+    autoprefixer = require('gulp-autoprefixer'),
+    plumber = require('gulp-plumber'),
+    handleErrors = require('../util/handleErrors');
 
 // Compile and Automatically Prefix Stylesheets
-gulp.task('sass', function () {
-  var dest = '.tmp/assets';
-
-  // For best performance, don't add Sass partials to `gulp.src`
-  return gulp.src(['src/styles/*.{scss, sass}'])
-    .pipe(plumber({errorHandler: handleErrors}))
-    .pipe(sourcemaps.init({}))
-    .pipe(sass({
-      // Required if you want to use SASS syntax
-      // See https://github.com/dlmanning/gulp-sass/issues/81
-      sourceComments: 'map'
-      // imagePath: '/images' // Used by the image-url helper
-    }))
-    .pipe(sourcemaps.write())
-    // .pipe(autoprefixer(AUTOPREFIXER_BROWSERS, { map: true }))
-    .pipe(gulp.dest(dest));
+gulp.task('sass', function() {
+    // For best performance, don't add Sass partials to `gulp.src`
+    return gulp.src(config.srcFiles)
+        .pipe(plumber({
+            errorHandler: handleErrors
+        }))
+        .pipe(sourcemaps.init({}))
+        .pipe(sass(config.settings))
+        .pipe(autoprefixer({
+            browsers: ['Chrome >= 37']
+        }))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(config.dest));
 });
