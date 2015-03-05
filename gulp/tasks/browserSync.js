@@ -4,9 +4,8 @@ var gulp = require('gulp'),
     config = require('../config').browserSync,
     browserSync = require('browser-sync');
 
-// TODO: Jshint sollte browserSync aufrufen
 gulp.task('browserSync', [
-    'browserify',
+    'browserify', 'jsVendor',
     'sass', 'jade'
     // gulp.task('browserSync', [
     //     'browserify', 'coffeelint',

@@ -27,9 +27,9 @@ module.exports = {
         }
     },
     browserify: {
-        entries: src + '/JavaScript/main.js',
+        entries: src + '/JavaScript/app.js',
         dest: dest + '/JavaScript',
-        outputName: 'main.js'
+        outputName: 'app.js'
     },
     jshint: {
         src: [
@@ -37,6 +37,15 @@ module.exports = {
             src + '/JavaScript/*.js',
             'gulp/**/*.js'
         ]
+    },
+    jsVendor: {
+        src: [
+            src + '/JavaScript/vendor/vendor_a.js',
+            src + '/JavaScript/vendor/vendor_b.js',
+            src + '/JavaScript/vendor/subfolder/vendor_sub.js'
+        ],
+        dest: dest + '/JavaScript',
+        outputName: 'vendor.js'
     },
     clean: {
         target: [
@@ -46,8 +55,4 @@ module.exports = {
             dest + '/Stylesheets/**/*'
         ]
     }
-    // copy: {
-    //     srcJSFiles: src + '/JavaScript/vendor/**/*',
-    //     destJS: dest + '/JavaScript/vendor'
-    // }
 };

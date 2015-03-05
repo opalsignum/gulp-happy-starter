@@ -5,8 +5,7 @@ var gulp = require('gulp'),
     jade = require('gulp-jade'),
     jadeInheritance = require('gulp-jade-inheritance'),
     gulpMultinject = require('gulp-multinject'),
-    // uglify = require('gulp-uglify'),
-    // concat = require('gulp-concat'),
+    minifyHTML = require('gulp-minify-html'),
     changed = require('gulp-changed'),
     cached = require('gulp-cached'),
     filter = require('gulp-filter'),
@@ -61,5 +60,6 @@ gulp.task('jade', function() {
                 urlPrefix: ''
             }
         ))
+        .pipe(minifyHTML())
         .pipe(gulp.dest(config.dest));
 });
