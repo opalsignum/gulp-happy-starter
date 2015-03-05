@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     config = require('../config').markup,
     jade = require('gulp-jade'),
     jadeInheritance = require('gulp-jade-inheritance'),
-    useAsset = require('gulp-use-asset'),
+    gulpMultinject = require('gulp-multinject'),
     // uglify = require('gulp-uglify'),
     // concat = require('gulp-concat'),
     changed = require('gulp-changed'),
@@ -37,6 +37,29 @@ gulp.task('jade', function() {
         .pipe(jade({
             pretty: !global.isWatching
         }))
-        .pipe(useAsset())
+        .pipe(gulpMultinject([
+                '../Stylesheets/app.css'
+            ],
+            'cssApp', {
+                relative: true,
+                urlPrefix: ''
+            }
+        ))
+        .pipe(gulpMultinject([
+                '../JavaScript/vendor.js'
+            ],
+            'jsVendor', {
+                relative: true,
+                urlPrefix: ''
+            }
+        ))
+        .pipe(gulpMultinject([
+                '../JavaScript/app.js'
+            ],
+            'jsApp', {
+                relative: true,
+                urlPrefix: ''
+            }
+        ))
         .pipe(gulp.dest(config.dest));
 });
