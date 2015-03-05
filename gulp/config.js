@@ -15,10 +15,8 @@ module.exports = {
     },
     markup: {
         src: src + '/Templates',
-        srcFiles: [src + '/index.jade', src + '/Templates/*.jade'],
-        dest: dest + '/Templates',
-        jsVendor: src + '/JavaScript/vendors.js',
-        jsMain: src + '/JavaScript/main.js'
+        srcFiles: [src + '/Templates/**/*.jade'],
+        dest: dest + '/Templates'
     },
     sass: {
         src: src + '/Stylesheets/app.scss',
@@ -39,11 +37,6 @@ module.exports = {
             src + '/JavaScript/*.js',
             'gulp/**/*.js'
         ]
-    },
-    vendorJs: {
-        src: src + '/JavaScript/vendor/**/*',
-        dest: dest + '/JavaScript',
-        destFileName: 'vendors.js'
     },
     clean: {
         target: [

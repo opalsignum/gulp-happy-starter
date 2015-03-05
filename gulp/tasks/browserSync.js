@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 
 // TODO: Jshint sollte browserSync aufrufen
 gulp.task('browserSync', [
-    'browserify', 'vendorJs',
+    'browserify',
     'sass', 'jade'
     // gulp.task('browserSync', [
     //     'browserify', 'coffeelint',

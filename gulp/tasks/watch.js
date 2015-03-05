@@ -11,13 +11,6 @@ var gulp = require('gulp'),
 
 gulp.task('watch', ['setWatch', 'browserSync'], function() {
     gulp.watch(config.markup.srcFiles, ['jade']);
-
     gulp.watch(config.sass.src, ['sass']);
-
     gulp.watch(config.jshint.src, ['jshint']);
-    gulp.watch(config.vendorJs.src, ['vendorJs']);
-
-    // gulp.watch('src/images/**', ['images']);
-    //
-    // gulp.watch('src/fonts/**', ['copyOther']);
 });
