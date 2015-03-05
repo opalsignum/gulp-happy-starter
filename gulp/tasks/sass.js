@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 // Compile and Automatically Prefix Stylesheets
 gulp.task('sass', function() {
     // For best performance, don't add Sass partials to `gulp.src`
-    return gulp.src(config.src)
+    return gulp.src(config.srcFiles)
         .pipe(plumber({
             errorHandler: handleErrors
         }))

@@ -22,7 +22,8 @@ module.exports = {
         dest: dest + '/Templates'
     },
     sass: {
-        src: src + '/Stylesheets/app.scss',
+        src: src + '/Stylesheets/**/*.scss',
+        srcFiles: src + '/Stylesheets/app.scss',
         dest: dest + '/Stylesheets',
         settings: {
             includePaths: require('node-bourbon').includePaths,
