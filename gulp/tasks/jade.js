@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     config = require('../config').markup,
     jade = require('gulp-jade'),
     jadeInheritance = require('gulp-jade-inheritance'),
-    htmlreplace = require('gulp-html-replace'),
+    useAsset = require('gulp-use-asset'),
     // uglify = require('gulp-uglify'),
     // concat = require('gulp-concat'),
     changed = require('gulp-changed'),
@@ -37,11 +37,6 @@ gulp.task('jade', function() {
         .pipe(jade({
             pretty: !global.isWatching
         }))
-        .pipe(htmlreplace({
-            'css': 'app123.css',
-            'js': '../JavaScript/vendors.js'
-        }, {
-            resolvePaths: true
-        }))
+        .pipe(useAsset())
         .pipe(gulp.dest(config.dest));
 });
