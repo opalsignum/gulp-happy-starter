@@ -4,10 +4,7 @@ var gulp = require('gulp'),
     config = require('../config').markup,
     jade = require('gulp-jade'),
     jadeInheritance = require('gulp-jade-inheritance'),
-    useref = require('gulp-useref'),
-    // es = require('event-stream'),
-    // series = require('stream-series'),
-    // inject = require('gulp-inject'),
+    htmlreplace = require('gulp-html-replace'),
     // uglify = require('gulp-uglify'),
     // concat = require('gulp-concat'),
     changed = require('gulp-changed'),
@@ -19,8 +16,6 @@ var gulp = require('gulp'),
     handleErrors = require('../util/handleErrors');
 
 gulp.task('jade', function() {
-    var assets = useref.assets();
-
     return gulp.src(config.srcFiles)
         .pipe(plumber({
             errorHandler: handleErrors
@@ -42,8 +37,11 @@ gulp.task('jade', function() {
         .pipe(jade({
             pretty: !global.isWatching
         }))
-        .pipe(assets)
-        .pipe(assets.restore())
-        .pipe(useref())
+        .pipe(htmlreplace({
+            'css': 'app123.css',
+            'js': '../JavaScript/vendors.js'
+        }, {
+            resolvePaths: true
+        }))
         .pipe(gulp.dest(config.dest));
 });
