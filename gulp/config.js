@@ -8,14 +8,17 @@ module.exports = {
         init: dest + '/**',
         server: {
             baseDir: './Public',
-            directory: true,
+            // directory: true,
             notify: false,
             browser: 'google chrome'
         }
     },
     markup: {
         src: src + '/Templates',
-        srcFiles: [src + '/Templates/**/*.jade'],
+        srcFiles: [
+            src + '/index.jade',
+            src + '/Templates/**/*.jade'
+        ],
         dest: dest + '/Templates'
     },
     sass: {

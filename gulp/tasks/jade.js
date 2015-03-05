@@ -10,7 +10,6 @@ var gulp = require('gulp'),
     cached = require('gulp-cached'),
     filter = require('gulp-filter'),
     gulpif = require('gulp-if'),
-    // flatten = require('gulp-flatten'),
     plumber = require('gulp-plumber'),
     handleErrors = require('../util/handleErrors');
 
