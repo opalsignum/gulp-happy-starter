@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     config = require('../config').sass,
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
+    autoprefixer = require('gulp-autoprefixer'),
     plumber = require('gulp-plumber'),
     handleErrors = require('../util/handleErrors');
 
@@ -16,6 +17,9 @@ gulp.task('sass', function() {
         }))
         .pipe(sourcemaps.init({}))
         .pipe(sass(config.settings))
+        .pipe(autoprefixer({
+            browsers: ['Chrome >= 37']
+        }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.dest));
 });
