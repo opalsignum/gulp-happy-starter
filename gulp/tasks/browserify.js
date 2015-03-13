@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     browserify = require('browserify'),
     uglify = require('gulp-uglify'),
     watchify = require('watchify'),
+    sourcemaps = require('gulp-sourcemaps'),
     bundleLogger = require('../util/bundleLogger'),
     handleErrors = require('../util/handleErrors'),
     source = require('vinyl-source-stream'),
@@ -44,7 +45,11 @@ gulp.task('browserify', ['jshint'], function() {
             // desired output filename here.
             .pipe(source(config.outputName))
             .pipe(buffer())
+            .pipe(sourcemaps.init({
+                loadMaps: true
+            }))
             .pipe(uglify())
+            .pipe(sourcemaps.write())
             // Specify the output destination
             .pipe(gulp.dest(config.dest))
             // Log when bundling completes!
